@@ -1,7 +1,7 @@
 {
   "IndexPage": {
-    "title": "next-intl Beispiel",
-    "description": "Dies ist ein Beispiel, das die Verwendung von <code>next-intl</code> mit dem Next.js App Router demonstriert. Bei Ändern der Sprache rechts oben ändert sich der Inhalt dieser Seite."
+    "title": "next-startervoorbeeld met taal- en themawisseling",
+    "description": "Dit is een eenvoudig voorbeeld dat het gebruik van <code>next-themes, next-intl</code> met de Next.js App Router demonstreert. Probeer de landinstelling in de rechterbovenhoek en de themasfeer in het midden bovenaan te wijzigen om te zien hoe de inhoud verandert."
   },
   "PathnamesPage": {
     "title": "Pfadnamen",
@@ -25,19 +25,5 @@
   "Navigation": {
     "home": "Start",
     "pathnames": "Pfadnamen"
-  },
-  "PageLayout": {
-    "links": {
-      "docs": {
-        "title": "Dokumentation",
-        "description": "Erfahre mehr über next-intl in der offiziellen Dokumentation.",
-        "href": "https://next-intl-docs.vercel.app/"
-      },
-      "source": {
-        "title": "Quellcode",
-        "description": "Sieh dir den Quellcode dieses Beispiels auf GitHub an.",
-        "href": "https://github.com/amannn/next-intl/tree/main/examples/example-app-router"
-      }
-    }
   }
 }

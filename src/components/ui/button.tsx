@@ -4,6 +4,24 @@ import { cva } from "class-variance-authority";
 
 import { cn } from "@/libs/utils";
 
+// Define button variant and size types
+type ButtonVariant =
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link";
+type ButtonSize = "default" | "sm" | "lg" | "icon";
+
+// Props interface including optional props with default values
+interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
+    variant?: ButtonVariant;
+    size?: ButtonSize;
+    asChild?: boolean;
+    className?: string;
+}
+
 const buttonVariants = cva(
     "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300",
     {
@@ -34,12 +52,21 @@ const buttonVariants = cva(
     }
 );
 
-const Button = React.forwardRef(
-    ({ className, variant, size, asChild = false, ...props }, ref) => {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    (
+        {
+            variant = "default",
+            size = "default",
+            asChild = false,
+            className,
+            ...props
+        },
+        ref
+    ) => {
         const Comp = asChild ? Slot : "button";
         return (
             <Comp
-                className={cn(buttonVariants({ variant, size, className }))}
+                className={cn(buttonVariants({ variant, size }), className)}
                 ref={ref}
                 {...props}
             />
