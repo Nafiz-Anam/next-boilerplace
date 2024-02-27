@@ -4,6 +4,7 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { ReactNode } from "react";
 import { locales } from "@/config";
 import Navigation from "@/components/Navigation";
+import { NextIntlClientProvider, useMessages } from "next-intl";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export async function generateMetadata({
 export default function RootLayout({ children, params: { locale } }: Props) {
     // Enable static rendering
     unstable_setRequestLocale(locale);
+    const messages = useMessages();
     return (
         <html className="h-full" lang={locale}>
             <body className={inter.className}>
@@ -38,8 +40,10 @@ export default function RootLayout({ children, params: { locale } }: Props) {
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <Navigation />
-                    <main>{children}</main>
+                    <NextIntlClientProvider locale={locale} messages={messages}>
+                        <Navigation />
+                        <main>{children}</main>
+                    </NextIntlClientProvider>
                 </ThemeProvider>
             </body>
         </html>
