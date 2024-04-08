@@ -7,16 +7,21 @@ export default function Navigation() {
     const t = useTranslations("Navigation");
 
     return (
-        <div className="dark:bg-slate-850 bg-slate">
-            <nav className="container flex justify-between p-2 text-black dark:text-white">
+        <div className="container dark:bg-slate-850 bg-slate">
+            <nav className="container flex justify-between py-2 px-0 text-black dark:text-white">
+                <div>
+                    <h1 className="text-xl font-bol cursor-pointer">Logo</h1>
+                </div>
                 <div>
                     <NavigationLink href="/">{t("home")}</NavigationLink>
                     <NavigationLink href="/pathnames">
                         {t("pathnames")}
                     </NavigationLink>
                 </div>
-                <ThemeSwitcher />
-                <LocaleSwitcher />
+                <div>
+                    <ThemeSwitcher />
+                    <LocaleSwitcher />
+                </div>
             </nav>
         </div>
     );

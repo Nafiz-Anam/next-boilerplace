@@ -1,6 +1,6 @@
 "use client";
 
-import PageLayout from "@/components/PageLayout";
+
 import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 
@@ -18,7 +18,7 @@ export default function Error({ error, reset }: Props) {
     }, [error]);
 
     return (
-        <PageLayout title={t("title")}>
+        
             <div>
                 {t.rich("description", {
                     p: (chunks) => <p className="mt-4">{chunks}</p>,
@@ -33,6 +33,6 @@ export default function Error({ error, reset }: Props) {
                     ),
                 })}
             </div>
-        </PageLayout>
+        
     );
 }
